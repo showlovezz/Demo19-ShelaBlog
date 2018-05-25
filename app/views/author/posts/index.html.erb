@@ -1,22 +1,24 @@
-<% @posts.each do |post| %>
-  <div class="col-md-4">
-    <div class="card-deck mb-4">
-      <div class="card" style="height: 400px;">
-        <%= image_tag post.image, class: "card-img-top" %>
-        <div class="card-body">
-          <h5 class="card-title"><%= post.title %></h5>
-          <p class="card-text">
-            <%= truncate(post.description, length: 180) %>
-            <%= link_to "讀更多", author_post_path(post), class: "badge badge-primary" %>
-            <%= link_to "編輯", edit_author_post_path(post), class: "badge badge-primary" %>
-            <%= link_to "刪除", author_post_path(post), method: :delete, data: {confirm: "Are you sure?"}, class: "badge badge-danger" %>
-          </p>
-        </div>
-        <div class="card-footer">
-          <small class="text-muted"><%= time_ago_in_words(post.created_at) %> ago</small>
+<div class="row">
+  <% @posts.each do |post| %>
+    <div class="col-md-4">
+      <div class="card-deck mb-4">
+        <div class="card" style="height: 400px;">
+          <%= image_tag post.image, class: "card-img-top" %>
+          <div class="card-body">
+            <h5 class="card-title"><%= post.title %></h5>
+            <p class="card-text">
+              <%= truncate(post.description, length: 180) %>
+              <%= link_to "讀更多", author_post_path(post), class: "badge badge-primary" %>
+              <%= link_to "編輯", edit_author_post_path(post), class: "badge badge-primary" %>
+              <%= link_to "刪除", author_post_path(post), method: :delete, data: {confirm: "Are you sure?"}, class: "badge badge-danger" %>
+            </p>
+          </div>
+          <div class="card-footer">
+            <small class="text-muted"><%= time_ago_in_words(post.created_at) %> ago</small>
+          </div>
         </div>
       </div>
     </div>
-  </div>
-<% end %>
-<%= link_to 'New Post', new_author_post_path %>
+  <% end %>
+  <%= link_to 'New Post', new_author_post_path %>
+</div>
