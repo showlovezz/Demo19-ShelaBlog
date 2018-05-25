@@ -12,7 +12,7 @@
                 <%= truncate(post.description, length: 180) %>
                 <%= link_to "讀更多", author_post_path(post), class: "badge badge-primary" %>
                 <%= link_to "編輯", edit_author_post_path(post), class: "badge badge-primary" %>
-                <%= link_to "刪除", author_post_path(post), class: "badge badge-danger" %>
+                <%= link_to "刪除", author_post_path(post), method: :delete, data: {confirm: "Are you sure?"}, class: "badge badge-danger" %>
               </p>
             </div>
             <div class="card-footer">

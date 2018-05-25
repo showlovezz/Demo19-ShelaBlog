@@ -1,6 +1,6 @@
 class Author::PostsController < ApplicationController
 
-  before_action :set_post, only: [:show, :edit, :update]
+  before_action :set_post, only: [:show, :edit, :update, :destroy]
 
   def index
     @posts = Post.order("created_at DESC")
@@ -35,6 +35,12 @@ class Author::PostsController < ApplicationController
       flash[:alert] = "Post 修改不成功"
       render "edit"
     end
+  end
+
+  def destroy
+    @post.destroy
+    flash[:alert] = "Post 刪除"
+    redirect_to author_posts_path
   end
 
   private
