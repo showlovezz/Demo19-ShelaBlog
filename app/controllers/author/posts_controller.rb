@@ -46,7 +46,7 @@ class Author::PostsController < ApplicationController
   private
 
   def post_params
-    params.require(:post).permit(:title, :body, :description)
+    params.require(:post).permit(:title, :body, :description, :image)
   end
 
   def set_post

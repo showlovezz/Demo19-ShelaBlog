@@ -18,6 +18,10 @@
   <%= f.label :description, "請詳細敘述：" %>
   <%= f.text_area :description %>
 
+  <%= f.label :image, "上傳照片" %>
+  <%= image_tag @post.image, width: "300px" if @post.image? %>
+  <%= f.file_field :image %>
+
   <%= f.submit %>
 
 <% end %>
