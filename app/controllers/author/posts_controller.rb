@@ -1,6 +1,6 @@
 class Author::PostsController < ApplicationController
 
-  before_action :set_post, only: [:show]
+  before_action :set_post, only: [:show, :edit, :update]
 
   def index
     @posts = Post.order("created_at DESC")
@@ -22,6 +22,19 @@ class Author::PostsController < ApplicationController
   end
 
   def show
+  end
+
+  def edit
+  end
+
+  def update
+    if @post.update(post_params)
+      flash[:notice] = "Post 修改成功"
+      redirect_to author_posts_path
+    else
+      flash[:alert] = "Post 修改不成功"
+      render "edit"
+    end
   end
 
   private
