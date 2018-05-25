@@ -4,4 +4,9 @@ Rails.application.routes.draw do
   # 前台路由
   root "posts#index"
 
+  # 後台路由
+  namespace :author do
+    root "posts#index"
+  end
+
 end
