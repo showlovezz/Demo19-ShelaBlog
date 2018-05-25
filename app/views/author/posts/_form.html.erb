@@ -1,0 +1,14 @@
+<%= form_for [:author, @post] do |f| %>
+
+  <%= f.label :title, "文章名稱：" %>
+  <%= f.text_field :title %>
+
+  <%= f.label :body, "類別：" %>
+  <%= f.text_area :body %>
+
+  <%= f.label :description, "請詳細敘述：" %>
+  <%= f.text_area :description %>
+
+  <%= f.submit %>
+
+<% end %>
