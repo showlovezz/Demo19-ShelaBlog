@@ -1,5 +1,7 @@
 class Author::PostsController < ApplicationController
 
+  before_action :set_post, only: [:show]
+
   def index
     @posts = Post.order("created_at DESC")
   end
@@ -19,10 +21,17 @@ class Author::PostsController < ApplicationController
     end
   end
 
+  def show
+  end
+
   private
 
   def post_params
     params.require(:post).permit(:title, :body, :description)
+  end
+
+  def set_post
+    @post = Post.find(params[:id])
   end
 
 end
