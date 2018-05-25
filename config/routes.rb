@@ -6,6 +6,7 @@ Rails.application.routes.draw do
 
   # 後台路由
   namespace :author do
+    resources :posts
     root "posts#index"
   end
 
