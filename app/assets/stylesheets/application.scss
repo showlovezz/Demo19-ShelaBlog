@@ -14,7 +14,11 @@
  *= require_self
  */
  @import "bootstrap";
- @import "navbar";
- @import "total";
- @import "form";
+ @import "author/form";
+ @import "author/posts";
+ @import "post/post";
  @import "shared/post_show";
+ @import "total/navbar";
+ @import "total/style";
+
+
