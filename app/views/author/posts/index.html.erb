@@ -5,7 +5,6 @@
       <tr>
         <th scope="col">編號</th>
         <th scope="col">標題</th>
-        <th scope="col">類別</th>
         <th scope="col">編輯</th>
         <th scope="col">刪除</th>
       </tr>
@@ -15,7 +14,6 @@
         <tr>
           <td><%= post.id %></td>
           <td><%= link_to post.title, author_post_path(post), class: "t-dec" %></td>
-          <td><%= post.body %></td>
           <td>
             <%= link_to edit_author_post_path(post) do %>
               <i class="fas fa-pencil-alt text-muted"></i>

@@ -1,50 +1,66 @@
-<%= tinymce %>
+<%= form_for [:author, @post] do |f| %>
 
-<div class="row">
-
-  <div class="col-md-12">
-    <% if @post.errors.any? %>
-      <h2>We have some errors here !</h2>
-      <ul>
-        <% @post.errors.full_messages.each do |msg| %>
-          <li><%= msg %></li>
-        <% end %>
-      </ul>
-    <% end %>
-  </div>
-
-  <%= form_for [:author, @post] do |f| %>
-    <div class="row">
-      <div class="col-md-5">
-        <div class="form-group">
-          <%= image_tag @post.image, class: "img-thumbnail mb-1" if @post.image? %>
-        </div>
-        <div class="custom-file">
-          <%= f.label :image, "請選擇圖片", class: "custom-file-label" %>
-          <%= f.file_field :image, class: "custom-file-input" %>
-        </div>
-      </div>
-      <div class="col-md-7">
-        <div class="form-group">
-          <h4><%= f.label :title, "文章名稱：" %></h4>
-          <span class="badge badge-pill badge-danger">必填</span>
-          <%= f.text_field :title, class: "form-control form-control-lg", placeholder: "請輸入文章標題" %>
-        </div>
-        <div class="form-group">
-          <h4><%= f.label :body, "類別：" %></h4>
-          <span class="badge badge-pill badge-danger">必填</span>
-          <%= f.text_area :body, class: "form-control", rows: "3", placeholder: "請輸入文章內容" %>
-        </div>
-        <div class="form-group">
-          <h4><%= f.label :description, "請詳細敘述：" %></h4>
-          <span class="badge badge-pill badge-danger">必填</span>
-          <%= f.text_area :description, class: "tinymce form-control", rows: "9" %>
-        </div>
-
-        <%= f.submit class: "btn btn-warning btn-lg float-right" %>
-      </div>
-      </div>
-    </div>
+  <% if @post.errors.any? %>
+    <h2>We have some errors here !</h2>
+    <ul>
+      <% @post.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+    </ul>
   <% end %>
 
-</div>
+  <div class="row">
+    <div class="col-md-4">
+      <div class="card">
+        <div class="card-body form-color">
+          <% if @post.new_record? %>
+            <h5 class="card-title mb-0">New Post</h5>
+          <% else %>
+            <h5 class="card-title mb-0">
+              <b>Edit</b>
+              <span class="thin-text"><%= @post.title %></span>
+            </h5>
+          <% end %>
+        </div>
+        <ul class="list-group list-group-flush">
+          <li class="list-group-item">
+            <div class="form-group mb-0">
+              <% if @post.image.blank? %>
+                <img src="http://via.placeholder.com/370x250", class= "img-thumbnail mb-1">
+              <% else %>
+                <%= image_tag @post.image, class: "img-thumbnail mb-1" %>
+              <% end %>
+            </div>
+            <div class="custom-file">
+              <%= f.label :image, "請選擇圖片", class: "custom-file-label" %>
+              <%= f.file_field :image, class: "custom-file-input" %>
+            </div>
+          </li>
+          <li class="list-group-item">
+            <div class="form-group mb-0">
+              <%= f.label :title, "Title：" %>
+              <%= f.text_field :title, class: "form-control form-color" %>
+            </div>
+          </li>
+          <li class="list-group-item">
+            <div class="form-group mb-0">
+              <%= f.label :description, "Description：" %>
+              <%= f.text_area :description, class: "form-control form-color", rows: "5" %>
+            </div>
+          </li>
+          <li class="list-group-item form-color">
+            <div class="form-group mb-0">
+              <%= f.submit class: "btn btn-success btn-block" %>
+            </div>
+          </li>
+        </ul>
+      </div>
+    </div>
+    <div class="col-md-8">
+      <div class="form-group">
+        <%= f.text_area :body, class: "form-control" %>
+      </div>
+    </div>
+  </div>
+
+<% end %>

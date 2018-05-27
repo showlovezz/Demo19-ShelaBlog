@@ -17,3 +17,13 @@
 //= require bootstrap-sprockets
 //= require tinymce-jquery
 //= require_tree .
+
+document.addEventListener("turbolinks:load", function() {
+  tinymce.remove();
+  tinymce.init({
+    height: "588",
+    selector:"textarea#post_body",
+    plugins: "image media link table codesample textcolor code hr lists wordcount preview",
+    toolbar: "undo redo | styleselect | image media link codesample | forecolor backcolor | numlist bullist | table | code | preview"
+  });
+})
