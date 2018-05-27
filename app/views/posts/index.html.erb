@@ -7,7 +7,7 @@
           <div class="card-body">
             <h5 class="card-title"><%= post.title %></h5>
             <p class="card-text">
-              <%= truncate(post.description, length: 180) %>
+              <%= truncate(post.body, length: 100) %>
               <%= link_to "讀更多", post_path(post), class: "badge badge-primary" %>
             </p>
           </div>
