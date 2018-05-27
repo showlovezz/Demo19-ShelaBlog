@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  devise_for :users, path: "erica&rebecca"
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 
   # 前台首頁網址
@@ -9,7 +10,7 @@ Rails.application.routes.draw do
 
   namespace :author do
     # posts 後台路由
-    resources :posts
+    resources :posts, path: "karjjq&liti"
     # 後台首頁網址
     root "posts#index"
   end

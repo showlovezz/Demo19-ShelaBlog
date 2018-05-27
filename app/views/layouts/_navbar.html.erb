@@ -3,7 +3,7 @@
 
     <a class="navbar-brand" href="/">
       <span class="text-warning">
-        <i class="fa fa-home"></i>Vita
+        <i class="fa fa-home"></i>Vita's
       </span>blog
     </a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -14,7 +14,7 @@
       <ul class="navbar-nav ml-auto">
 
         <li class="nav-item">
-          <a class="nav-link muted" href="#">Blog</a>
+          <%= link_to "Blog", posts_path, class: "nav-link muted" %>
         </li>
 
         <li class="nav-item">
@@ -28,6 +28,20 @@
         <li class="nav-item">
           <a class="nav-link muted" href="#">About Vita</a>
         </li>
+
+        <% if user_signed_in? %>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle muted" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Dropdown
+            </a>
+            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+              <%= link_to "My posts", author_posts_path, class: "dropdown-item" %>
+              <a class="dropdown-item" href="#">My TechNote</a>
+              <a class="dropdown-item" href="#">My Portfolio</a>
+              <div class="dropdown-divider"></div>
+                <%= link_to "登出", destroy_user_session_path, method: :delete, class: "dropdown-item" %>
+            </div>
+          </li>
+        <% end %>
 
       </ul>
     </div>
