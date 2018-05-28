@@ -1,0 +1,30 @@
+<%= link_to "新增作品", new_author_portfolio_path, class: "btn btn-outline-info mb-2" %>
+
+<table class="table">
+  <thead class="thead-light">
+    <tr>
+      <th scope="col">編號</th>
+      <th scope="col">標題</th>
+      <th scope="col">編輯</th>
+      <th scope="col">刪除</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @portfolios.each do |posrfolio| %>
+      <tr>
+        <td><%= posrfolios.id %></td>
+        <td><%= link_to posrfolio.title, author_posrfolio_path(posrfolio), class: "t-dec" %></td>
+        <td>
+          <%= link_to edit_author_posrfolio_path(posrfolio) do %>
+            <i class="fas fa-pencil-alt text-muted"></i>
+          <% end %>
+        </td>
+        <td>
+          <%= link_to author_posrfolio_path(posrfolio),method: :delete, data: {confirm: "Are you sure?"} do %>
+            <i class="fab fa-expeditedssl text-danger"></i>
+          <% end %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
