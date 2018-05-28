@@ -1,6 +1,5 @@
-class Author::TechnotesController < ApplicationController
+class Author::TechnotesController < Author::BaseController
 
-  before_action :authenticate_user!
   before_action :set_technote, only: [:show, :edit, :update, :destroy]
 
   def index

@@ -1,4 +1,4 @@
-class Author::PortfoliosController < ApplicationController
+class Author::PortfoliosController < Author::BaseController
 
   before_action :set_portfolio, only: [:show, :edit, :update, :destroy]
 
