@@ -1,0 +1,22 @@
+<div class="row">
+  <% @portfolios.each do |portfolio| %>
+    <div class="col-md-4">
+      <div class="card-deck mb-4">
+        <%= link_to portfolio_path(portfolio), style: "text-decoration: none;" do %>
+          <div class="card" style="height: 400px;">
+            <%= image_tag portfolio.image, class: "card-img-top" %>
+            <div class="card-body">
+              <h5 class="card-title text-dark"><%= portfolio.title %></h5>
+              <p class="card-text text-muted">
+                <%= truncate(portfolio.description, length: 100) %>
+              </p>
+            </div>
+            <div class="card-footer">
+              <small class="text-muted"><%= time_ago_in_words(portfolio.created_at) %> ago</small>
+            </div>
+          </div>
+        <% end %>
+      </div>
+    </div>
+  <% end %>
+</div>
