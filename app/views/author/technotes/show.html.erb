@@ -1,0 +1,18 @@
+<div class="row">
+
+  <div class="col-md-5">
+    <%= image_tag @technote.image, class: "img-thumbnail" %>
+  </div>
+
+  <div class="col-md-7">
+    <h2><%= @technote.title %></h2>
+    <hr>
+    <p class="lead size"><%= @technote.body.html_safe %></p>
+    <br>
+    <p><%= @technote.description %></p>
+  </div>
+  <div class="col-md-12 mt-5">
+    <%= link_to 'Back to index', author_technotes_path, class: "btn btn-warning float-right" %>
+  </div>
+
+</div>

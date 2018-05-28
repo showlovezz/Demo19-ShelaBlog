@@ -6,3 +6,8 @@ body {
 td .t-dec {
   text-decoration: none;
 }
+
+.size + p {
+  display: block;
+  margin-bottom: 50px;
+}

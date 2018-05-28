@@ -1,5 +1,7 @@
 class Author::TechnotesController < ApplicationController
 
+  before_action :set_technote, only: [:show]
+
   def index
     @technotes = Technote.order("created_at DESC")
   end
@@ -19,10 +21,18 @@ class Author::TechnotesController < ApplicationController
     end
   end
 
+  def show
+  end
+
+
   private
 
   def technote_params
     params.require(:technote).permit(:title, :body, :description, :image)
+  end
+
+  def set_technote
+    @technote = Technote.friendly.find(params[:id])
   end
 
 end
