@@ -1,6 +1,6 @@
 class Author::TechnotesController < ApplicationController
 
-  before_action :set_technote, only: [:show]
+  before_action :set_technote, only: [:show, :edit, :update, :destroy]
 
   def index
     @technotes = Technote.order("created_at DESC")
@@ -22,6 +22,25 @@ class Author::TechnotesController < ApplicationController
   end
 
   def show
+  end
+
+  def edit
+  end
+
+  def update
+    if @technote.update(technote_params)
+      flash[:notice] = "TechNote 修改成功"
+      redirect_to author_technotes_path
+    else
+      flash[:notice] = "TechNote 修改不成功"
+      render "edit"
+    end
+  end
+
+  def destroy
+    @technote.destroy
+    flash[:alert] = "Post 刪除"
+    redirect_to author_technotes_path
   end
 
 
