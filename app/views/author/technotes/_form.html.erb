@@ -1,0 +1,66 @@
+<%= form_for [:author, @technote] do |f| %>
+
+  <% if @technote.errors.any? %>
+    <h2>We have some errors here !</h2>
+    <ul>
+      <% @post.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+    </ul>
+  <% end %>
+
+  <div class="row">
+    <div class="col-md-4">
+      <div class="card">
+        <div class="card-body form-color">
+          <% if @technote.new_record? %>
+            <h5 class="card-title mb-0">New Post</h5>
+          <% else %>
+            <h5 class="card-title mb-0">
+              <b>Edit</b>
+              <span class="thin-text"><%= @technote.title %></span>
+            </h5>
+          <% end %>
+        </div>
+        <ul class="list-group list-group-flush">
+          <li class="list-group-item">
+            <div class="form-group mb-0">
+              <% if @technote.image.blank? %>
+                <img src="http://via.placeholder.com/370x250", class= "img-thumbnail mb-1">
+              <% else %>
+                <%= image_tag @technote.image, class: "img-thumbnail mb-1" %>
+              <% end %>
+            </div>
+            <div class="custom-file">
+              <%= f.label :image, "請選擇圖片", class: "custom-file-label" %>
+              <%= f.file_field :image, class: "custom-file-input" %>
+            </div>
+          </li>
+          <li class="list-group-item">
+            <div class="form-group mb-0">
+              <%= f.label :title, "Title：" %>
+              <%= f.text_field :title, class: "form-control form-color" %>
+            </div>
+          </li>
+          <li class="list-group-item">
+            <div class="form-group mb-0">
+              <%= f.label :description, "Description：" %>
+              <%= f.text_area :description, class: "form-control form-color", rows: "5" %>
+            </div>
+          </li>
+          <li class="list-group-item form-color">
+            <div class="form-group mb-0">
+              <%= f.submit class: "btn btn-success btn-block" %>
+            </div>
+          </li>
+        </ul>
+      </div>
+    </div>
+    <div class="col-md-8">
+      <div class="form-group">
+        <%= f.text_area :body, class: "form-control" %>
+      </div>
+    </div>
+  </div>
+
+<% end %>

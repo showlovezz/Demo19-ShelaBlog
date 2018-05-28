@@ -18,7 +18,7 @@
         </li>
 
         <li class="nav-item">
-          <a class="nav-link muted" href="#">TechNote</a>
+          <%= link_to "TechNote", technotes_path, class: "nav-link muted" %>
         </li>
 
         <li class="nav-item">
@@ -35,7 +35,7 @@
             </a>
             <div class="dropdown-menu" aria-labelledby="navbarDropdown">
               <%= link_to "My posts", author_posts_path, class: "dropdown-item" %>
-              <a class="dropdown-item" href="#">My TechNote</a>
+              <%= link_to "My TechNote", author_technotes_path, class: "dropdown-item" %>
               <a class="dropdown-item" href="#">My Portfolio</a>
               <div class="dropdown-divider"></div>
                 <%= link_to "登出", destroy_user_session_path, method: :delete, class: "dropdown-item" %>
