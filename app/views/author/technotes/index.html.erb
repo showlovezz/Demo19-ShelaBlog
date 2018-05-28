@@ -1,1 +1,30 @@
-<h1>This is Note候候候候台</h1>
+<%= link_to "技術文章新增", new_author_technote_path, class: "btn btn-outline-info mb-2" %>
+
+<table class="table">
+  <thead class="thead-light">
+    <tr>
+      <th scope="col">編號</th>
+      <th scope="col">標題</th>
+      <th scope="col">編輯</th>
+      <th scope="col">刪除</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @technotes.each do |technote| %>
+      <tr>
+        <td><%= technote.id %></td>
+        <td><%= link_to technote.title, author_technote_path(technote), class: "t-dec" %></td>
+        <td>
+          <%= link_to edit_author_technote_path(technote) do %>
+            <i class="fas fa-pencil-alt text-muted"></i>
+          <% end %>
+        </td>
+        <td>
+          <%= link_to author_technote_path(technote),method: :delete, data: {confirm: "Are you sure?"} do %>
+            <i class="fab fa-expeditedssl text-danger"></i>
+          <% end %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
