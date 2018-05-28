@@ -1,4 +1,4 @@
-<nav class="navbar sticky-top navbar-expand-lg navbar-light bg-info mb-5">
+<nav class="navbar sticky-top navbar-expand-lg navbar-light bg-info mb-3">
   <div class="container">
 
     <a class="navbar-brand" href="/">
@@ -31,7 +31,7 @@
 
         <% if user_signed_in? %>
           <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle muted" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Dropdown
+            <a class="nav-link dropdown-toggle muted" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Vita's Blog
             </a>
             <div class="dropdown-menu" aria-labelledby="navbarDropdown">
               <%= link_to "My posts", author_posts_path, class: "dropdown-item" %>
@@ -48,3 +48,29 @@
 
   </div>
 </nav>
+
+<% if flash[:notice] %>
+  <div class="container">
+    <div class="row">
+      <div class="alert alert-success alert-dismissible fade show" role="alert">
+        <%= notice %>
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+    </div>
+  </div>
+<% end %>
+
+<% if flash[:alert] %>
+  <div class="container">
+    <div class="row">
+      <div class="alert alert-danger alert-dismissible fade show" role="alert">
+        <%= alert %>
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+    </div>
+  </div>
+<% end %>
