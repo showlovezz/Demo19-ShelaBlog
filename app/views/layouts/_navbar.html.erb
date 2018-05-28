@@ -22,7 +22,7 @@
         </li>
 
         <li class="nav-item">
-          <a class="nav-link muted" href="#">Portfolio</a>
+          <%= link_to "PortFolio", portfolios_path, class: "nav-link muted" %>
         </li>
 
         <li class="nav-item">
@@ -36,7 +36,7 @@
             <div class="dropdown-menu" aria-labelledby="navbarDropdown">
               <%= link_to "My posts", author_posts_path, class: "dropdown-item" %>
               <%= link_to "My TechNote", author_technotes_path, class: "dropdown-item" %>
-              <a class="dropdown-item" href="#">My Portfolio</a>
+              <%= link_to "My PortFolio", author_portfolios_path, class: "dropdown-item" %>
               <div class="dropdown-divider"></div>
                 <%= link_to "登出", destroy_user_session_path, method: :delete, class: "dropdown-item" %>
             </div>
