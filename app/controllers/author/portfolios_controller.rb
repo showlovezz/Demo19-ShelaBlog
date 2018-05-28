@@ -1,6 +1,6 @@
 class Author::PortfoliosController < ApplicationController
 
-  before_action :set_portfolio, only: [:show]
+  before_action :set_portfolio, only: [:show, :edit, :update, :destroy]
 
   def index
     @portfolios = Portfolio.all
@@ -22,6 +22,25 @@ class Author::PortfoliosController < ApplicationController
   end
 
   def show
+  end
+
+  def edit
+  end
+
+  def update
+    if @portfolio.update(portfolio_params)
+      flash[:notice] = "Portfolio 修改成功"
+      redirect_to author_portfolios_path
+    else
+      flash[:alert] = "Portfolio 修改不成功"
+      render "edit"
+    end
+  end
+
+  def destroy
+    @portfolio.destroy
+    flash[:alert] = "Portfolio 刪除"
+    redirect_to author_portfolios_path
   end
 
   private
