@@ -8,10 +8,10 @@ Rails.application.routes.draw do
   resources :technotes, only: [:index, :show]
   resources :portfolios, only: [:index, :show]
 
-  namespace :author do
-    resources :posts, path: "vita&shela&Karjjq"
-    resources :technotes, path: "erica&liti&rebecca"
-    resources :portfolios, path: "rebecca&vita&erica"
+  namespace :author, path: "erica&rebecca&liti&vita" do
+    resources :posts
+    resources :technotes
+    resources :portfolios
     root "posts#index"
   end
 
