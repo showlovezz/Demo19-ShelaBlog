@@ -7,6 +7,7 @@ Rails.application.routes.draw do
   resources :posts, only: [:index, :show]
   resources :technotes, only: [:index, :show]
   resources :portfolios, only: [:index, :show]
+  get "vitablogs/about", to:'vitablogs#about'
 
   namespace :author, path: "erica&rebecca&liti&vita" do
     resources :posts
