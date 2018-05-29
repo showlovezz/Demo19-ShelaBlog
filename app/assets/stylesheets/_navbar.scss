@@ -1,5 +1,10 @@
+.muted {
+  color: #222 !important;
+}
+
 .muted:hover {
   color: white !important;
+  transition: 0.5s;
 }
 
 .fa {
@@ -8,4 +13,8 @@
 
 .alert {
   width: 100%
+}
+
+nav.navbar {
+  background-color: #4F728E;
 }
