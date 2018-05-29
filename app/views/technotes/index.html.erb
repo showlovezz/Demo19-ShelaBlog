@@ -1,22 +1,26 @@
-<div class="row">
-  <% @technotes.each do |technote| %>
-    <div class="col-md-4">
-      <div class="card-deck mb-4">
-        <%= link_to technote_path(technote), style: "text-decoration: none;" do %>
-          <div class="card" style="height: 400px;">
-            <%= image_tag technote.image, class: "card-img-top" %>
-            <div class="card-body">
-              <h5 class="card-title text-dark"><%= technote.title %></h5>
-              <p class="card-text text-muted">
-                <%= truncate(technote.description, length: 100) %>
-              </p>
-            </div>
-            <div class="card-footer">
-              <small class="text-muted"><%= time_ago_in_words(technote.created_at) %> ago</small>
-            </div>
+<section id="section_technotes">
+  <div class="container">
+    <div class="row">
+      <% @technotes.each do |technote| %>
+        <div class="col-md-4 mt-4">
+          <div class="card-deck mb-4">
+            <%= link_to technote_path(technote), style: "text-decoration: none;" do %>
+              <div class="card" style="height: 400px;">
+                <%= image_tag technote.image, class: "card-img-top" %>
+                <div class="card-body">
+                  <h5 class="card-title text-dark"><%= technote.title %></h5>
+                  <p class="card-text text-muted">
+                    <%= truncate(technote.description, length: 100) %>
+                  </p>
+                </div>
+                <div class="card-footer">
+                  <small class="text-muted"><%= time_ago_in_words(technote.created_at) %> ago</small>
+                </div>
+              </div>
+            <% end %>
           </div>
-        <% end %>
-      </div>
+        </div>
+      <% end %>
     </div>
-  <% end %>
-</div>
+  </div>
+</section>

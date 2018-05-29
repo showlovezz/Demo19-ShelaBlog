@@ -1,18 +1,19 @@
-<div class="row">
+<article id="article_posts">
+  <div class="container mt-4">
+    <div class="row">
 
-  <div class="col-md-5">
-    <%= image_tag @post.image, class: "img-thumbnail" %>
-  </div>
+      <div class="col-md-5">
+        <%= image_tag @post.image, class: "img-thumbnail" %>
+      </div>
 
-  <div class="col-md-7">
-    <h2><%= @post.title %></h2>
-    <hr>
-    <p class="lead size"><%= @post.body.html_safe %></p>
-    <p><%=  @post.description %></p>
-  </div>
-  <div class="col-md-12 mt-5">
-    <%= link_to 'Back to index', posts_path, class: "btn btn-warning float-right" %>
-  </div>
+      <div class="col-md-7">
+        <h2><%= @post.title %></h2>
+        <hr>
+        <p class="lead size"><%= @post.body.html_safe %></p>
+        <p><%=  @post.description %></p>
+      </div>
 
-</div>
+    </div>
+  </div>
+</article>
 
