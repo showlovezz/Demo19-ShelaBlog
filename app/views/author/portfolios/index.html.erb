@@ -1,37 +1,39 @@
-<%= link_to "新增作品", new_author_portfolio_path, class: "btn btn-dark mb-2" %>
+<div class="container mt-4">
+  <%= link_to "新增作品", new_author_portfolio_path, class: "btn btn-dark mb-2" %>
 
-<table class="table table-striped">
-  <caption>List of PortFolios</caption>
-  <thead class="thead-dark">
-    <tr>
-      <th scope="col">編號</th>
-      <th scope="col">標題</th>
-      <th scope="col">預覽</th>
-      <th scope="col">編輯</th>
-      <th scope="col">刪除</th>
-    </tr>
-  </thead>
-  <tbody>
-    <% @portfolios.each do |portfolio| %>
+  <table class="table table-striped">
+    <caption class="text-dark">List of PortFolios</caption>
+    <thead class="thead-dark">
       <tr>
-        <td><%= portfolio.id %></td>
-        <td><%= portfolio.title %></td>
-        <td>
-          <%= link_to author_portfolio_path(portfolio) do %>
-            <i class="fa fa-eye text-muted"></i>
-          <% end %>
-        </td>
-        <td>
-          <%= link_to edit_author_portfolio_path(portfolio) do %>
-            <i class="fas fa-pencil-alt text-muted"></i>
-          <% end %>
-        </td>
-        <td>
-          <%= link_to author_portfolio_path(portfolio),method: :delete, data: {confirm: "Are you sure?"} do %>
-            <i class="fab fa-expeditedssl text-danger"></i>
-          <% end %>
-        </td>
+        <th scope="col">編號</th>
+        <th scope="col">標題</th>
+        <th scope="col">預覽</th>
+        <th scope="col">編輯</th>
+        <th scope="col">刪除</th>
       </tr>
-    <% end %>
-  </tbody>
-</table>
+    </thead>
+    <tbody>
+      <% @portfolios.each do |portfolio| %>
+        <tr>
+          <td><%= portfolio.id %></td>
+          <td><%= portfolio.title %></td>
+          <td>
+            <%= link_to author_portfolio_path(portfolio) do %>
+              <i class="fa fa-eye text-muted"></i>
+            <% end %>
+          </td>
+          <td>
+            <%= link_to edit_author_portfolio_path(portfolio) do %>
+              <i class="fas fa-pencil-alt text-muted"></i>
+            <% end %>
+          </td>
+          <td>
+            <%= link_to author_portfolio_path(portfolio),method: :delete, data: {confirm: "Are you sure?"} do %>
+              <i class="fab fa-expeditedssl text-danger"></i>
+            <% end %>
+          </td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>

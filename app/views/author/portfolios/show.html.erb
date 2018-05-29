@@ -1,19 +1,18 @@
-<div class="row">
+<div class="container mt-4">
+  <div class="row">
 
-  <div class="col-md-5">
-    <%= image_tag @portfolio.image, class: "img-thumbnail" %>
-  </div>
+    <div class="col-md-5">
+      <%= image_tag @portfolio.image, class: "img-thumbnail" %>
+    </div>
 
-  <div class="col-md-7">
-    <h2><%= @portfolio.title %></h2>
-    <hr>
-    <p class="lead size"><%= @portfolio.body.html_safe %></p>
-    <br>
-    <p><%= @portfolio.description %></p>
-  </div>
-  <div class="col-md-12 mt-5">
-    <%= link_to 'Back to index', author_portfolios_path, class: "btn btn-warning float-right" %>
-  </div>
+    <div class="col-md-7">
+      <h2><%= @portfolio.title %></h2>
+      <hr>
+      <p class="lead size"><%= @portfolio.body.html_safe %></p>
+      <br>
+      <p><%= @portfolio.description %></p>
+    </div>
 
+  </div>
 </div>
 
