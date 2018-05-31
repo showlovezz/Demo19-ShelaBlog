@@ -5,12 +5,12 @@
         <div class="col-md-4 mt-4">
           <div class="card-deck mb-4">
             <%= link_to portfolio_path(portfolio), style: "text-decoration: none;" do %>
-              <div class="card" style="height: 400px;">
+              <div class="card" style="height: 410px;">
                 <%= image_tag portfolio.image, class: "card-img-top" %>
                 <div class="card-body">
                   <h5 class="card-title text-dark"><%= portfolio.title %></h5>
                   <p class="card-text text-muted">
-                    <%= truncate(portfolio.description, length: 100) %>
+                    <%= truncate(portfolio.description, length: 80) %>
                   </p>
                 </div>
                 <div class="card-footer">

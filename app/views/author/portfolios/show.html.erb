@@ -3,14 +3,13 @@
 
     <div class="col-md-5">
       <%= image_tag @portfolio.image, class: "img-thumbnail" %>
+      <p><%= simple_format @portfolio.description %></p>
     </div>
 
     <div class="col-md-7">
       <h2><%= @portfolio.title %></h2>
       <hr>
-      <p class="lead size"><%= @portfolio.body.html_safe %></p>
-      <br>
-      <p><%= @portfolio.description %></p>
+      <p class="lead"><%= @portfolio.body.html_safe %></p>
     </div>
 
   </div>

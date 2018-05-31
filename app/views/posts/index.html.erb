@@ -5,12 +5,12 @@
         <div class="col-md-4 mt-4">
           <div class="card-deck">
             <%= link_to post_path(post), style: "text-decoration: none;" do %>
-              <div class="card" style="height: 400px;">
+              <div class="card" style="height: 410px;">
                 <%= image_tag post.image, class: "card-img-top" %>
                 <div class="card-body">
                   <h5 class="card-title text-dark"><%= post.title %></h5>
                   <p class="card-text text-muted">
-                    <%= truncate(post.description, length: 100) %>
+                    <%= truncate(post.description, length: 80) %>
                   </p>
                 </div>
                 <div class="card-footer">

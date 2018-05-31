@@ -3,14 +3,13 @@
 
     <div class="col-md-5">
       <%= image_tag @technote.image, class: "img-thumbnail" %>
+      <p><%= simple_format @technote.description %></p>
     </div>
 
     <div class="col-md-7">
       <h2><%= @technote.title %></h2>
       <hr>
-      <p class="lead size"><%= @technote.body.html_safe %></p>
-      <br>
-      <p><%= @technote.description %></p>
+      <p class="lead"><%= @technote.body.html_safe %></p>
     </div>
 
   </div>
